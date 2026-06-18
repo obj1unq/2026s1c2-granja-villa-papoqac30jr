@@ -3,6 +3,7 @@ import wollok.game.*
 class Maiz {
     const property position = game.at(1, 1)
     var property estado = maizBebe
+	const property valorVenta = 150
 
     method image() {
         // TODO: hacer que devuelva la imagen que corresponde
@@ -57,34 +58,44 @@ class Trigo {
 	method puedeSerCosechado() {
 		return etapa.puedeSerCosechada()
 	}
+
+	method valorVenta() {
+		return (etapa.nivel() - 1) * 100
+	}
 }
 
 object trigoNivel0 {
     method imagen() = "0"
     method siguiente() = trigoNivel1
 	method puedeSerCosechada() = false
+	method nivel() = 1
 }
 
 object trigoNivel1 {
    method imagen() = "1"
    method siguiente() = trigoNivel2
    method puedeSerCosechada() = false
+   method nivel() = 1
 }
 
 object trigoNivel2 {
    method imagen() = "2"
    method siguiente() = trigoNivel3
    method puedeSerCosechada() = true
+   method nivel() = 2
 }
 
 object trigoNivel3 {
     method imagen() = "3"
     method siguiente() = trigoNivel0
 	method puedeSerCosechada() = true
+	method nivel() = 3
 }
 
 class Tomaco {
 	var property position = game.at(0 , 0)
+	const property valorVenta = 80
+
     method image() {
         // TODO: hacer que devuelva la imagen que corresponde
         return "tomaco.png"

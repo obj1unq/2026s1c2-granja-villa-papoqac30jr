@@ -19,6 +19,8 @@ program farmville {
     keyboard.o().onPressDo({personaje.plantar(new Tomaco(position = personaje.position()))})
     keyboard.r().onPressDo({personaje.regar()})
     keyboard.c().onPressDo({personaje.cosechar()})
+    keyboard.v().onPressDo({personaje.venderAlimentos()})
+    keyboard.space().onPressDo({personaje.decirOroYCultivos()})
      
      //  COMIENZA
     game.start()
